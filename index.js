@@ -84,7 +84,7 @@ function checkWinner(winner) {
                 
            if(winner == 1) {
                document.querySelector("#title").innerHTML = "THE WINNER IS O !";
-            } else {
-               document.querySlector("#title").innerHTML = "THE WINNER IS X !";
-            }
+           } else {
+              document.querySlector("#title").innerHTML = "THE WINNER IS X !";
+           }
 }

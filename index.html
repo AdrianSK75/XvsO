@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>X vs O</title>
+         <style>
+             body {
+                 text-align: center;
+                 font-family: 'Exo 2', sans-serif;
+                 background-color: #c67ace;
+             }
+             .square {
+                 
+                 margin-top: 9%;
+             }
+             .button {
+                 background-color: #ff9a8c;
+                 width: 100px;
+                 height: 100px;
+             }
+             #numbers {           
+                 font-size: 50px;
+             }
+             .reset {
+                background-color: #ff9a8c;
+                 margin-top: 4%;
+                 margin-left: 48.56%;
+             }
+         </style>
+    </head>
+    <body>
+        <h1 id = "title" color = "#d8f8b7">X vs O.</h1>
+        <div class = "square">
+            <button class = "button"  onclick = "setTic(0)"><h1 id = "numbers"></h1></button>
+            <button class = "button"  onclick = "setTic(1)"><h1 id = "numbers"></h1></button>
+            <button class = "button"  onclick = "setTic(2)"><h1 id = "numbers"></h1></button><br>
+            <button class = "button"  onclick = "setTic(3)"><h1 id = "numbers"></h1></button>
+            <button class = "button"  onclick = "setTic(4)"><h1 id = "numbers"></h1></button>
+            <button class = "button"  onclick = "setTic(5)"><h1 id = "numbers"></h1></button><br>
+            <button class = "button"  onclick = "setTic(6)"><h1 id = "numbers"></h1></button>
+            <button class = "button"  onclick = "setTic(7)"><h1 id = "numbers"></h1></button>
+            <button class = "button"  onclick = "setTic(8)"><h1 id = "numbers"></h1></button>
+        </div>
+
+        <button class = "reset" onclick = "resetGame()">Reset</button>
+        <script src ="index.js"></script>
+     </body>
+ </html>

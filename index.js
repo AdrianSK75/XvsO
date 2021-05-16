@@ -66,15 +66,17 @@ function checkTable() {
 }
 function checkWinner(check) {
     for(var btn = 0; btn < 9; ++btn) {
-       document.querySelectorAll(".button")[btn].disabled = true;
+            document.querySelectorAll(".button")[btn].disabled = true;
 
        if(btn < 3)
-           document.querySelectorAll(".button")[position[btn]].style.background = "#d8f8b7";
+             document.querySelectorAll(".button")[position[btn]].style.background = "#d8f8b7";
    }
    
    if(check == 1) {
        document.querySelector("#title").innerHTML = "THE WINNER IS O !";
+         
    } else {
        document.querySelector("#title").innerHTML = "THE WINNER IS X !";
+         
    }
 }

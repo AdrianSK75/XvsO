@@ -1,85 +1,51 @@
 var position = new Array(3);
 var arr = new Array(9).fill(0);
 var xao = "X";
-var bt = null, moves = 0;
-
-
-for(var btn = 0; btn < 9; ++btn)
-      document.querySelectorAll("#numbers")[btn].innerHTML = ' ';
+var bt = null, move;
 
 function setTic(bt) {
    document.querySelector("#title").innerHTML = xao + " TURN.";
     if(xao == "X") {
-        arr[bt] = 1;                   
+        arr[bt] = "X";                  
         document.querySelectorAll("#numbers")[bt].innerHTML = xao = "O";
-
     } else {
-       arr[bt] = 2;
+       arr[bt] ="O";
        document.querySelectorAll("#numbers")[bt].innerHTML = xao = "X";
-
     }
-    ++moves;
-    
-    checkTable();
+    move = arr[bt];
+    checkTable(move);
 }
 
-function checkTable() {
-         var item = 'O'; 
-         
-         for(var check = 1; check <= 2; ++check) {
-               
-               if(arr[0] == check && arr[1] == check && arr[2] == check) { //Horizontal
-                   position[0] = 0; position[1] = 1; position[2] = 2;
-                   return checkWinner(check);
-   
-               } else if(arr[3] == check && arr[4] == check && arr[5] == check) {
-                   position[0] = 3; position[1] = 4; position[2] = 5;
-                   return checkWinner(check);
+function checkTable(move) {
+        for(var i = 0, j = 0; i <= 6; i += 3, ++j) { //Horizontal + Vertical
+            if(arr[i] == move && arr[i + 1] == move && arr[i + 2] == move) {
+                position[0] = i; position[1] = i + 1; position[2] = i + 2;
+                return checkWinner();
+            }
 
-               } else if(arr[6] == check && arr[7] == check && arr[8] == check) {
-                   position[0] = 6; position[1] = 7; position[2] = 8;
-                   return checkWinner(check);
-
-               } else if(arr[0] == check && arr[3] == check && arr[6] == check) { //Vertical
-                   position[0] = 0; position[1] = 3; position[2] = 6;
-                   return checkWinner(check);
-
-               } else if(arr[1] == check && arr[4] == check && arr[7] == check) {
-                   position[0] = 1; position[1] = 4; position[2] = 7;
-                   return checkWinner(check);
-
-               } else if(arr[2] == check && arr[5] == check && arr[8] == check) {
-                   position[0] = 2; position[1] = 5; position[2] = 8;
-                   return checkWinner(check);
-
-               } else if(arr[0] == check && arr[4] == check && arr[8] == check) { //Diagonals
+            if(arr[j] == move && arr[j + 3] == move && arr[j + 6] == move) {
+                position[0] = j; position[1] = j + 3; position[2] = j + 6;
+                return checkWinner();
+            }
+        }
+        
+        if(arr[0] == move && arr[4] == move && arr[8] == move) { //Diagonals
                    position[0] = 0; position[1] = 4; position[2] = 8;
-                   return checkWinner(check);
+                   return checkWinner();
 
-               } else if(arr[2] == check && arr[4] == check && arr[6] == check) {
+        } else if(arr[2] == move && arr[4] == move && arr[6] == move) {
                    position[0] = 2; position[1] = 4; position[2] = 6;
-                   return checkWinner(check);
-
-               }
-                item = 'X';
-       }
-
-       if(moves == 9) {
-           return document.querySelector("#title").innerHTML = "Draw";
-       }
-
- 
+                   return checkWinner();
+        }
 }
-function checkWinner(check) {
-   for(var btn = 0; btn < 9; ++btn) {
-        document.querySelectorAll(".button")[btn].disabled = true;
 
-        if(btn < 3)
-            document.querySelectorAll(".button")[position[btn]].style.background = "#9fe6a0";
-   }
+function checkWinner() {
+    for(var btn = 0; btn < 9; ++btn) {
+            document.querySelectorAll(".button")[btn].disabled = true;
+
+            if(btn < 3)
+                document.querySelectorAll(".button")[position[btn]].style.background = "#9fe6a0";
+    }
    
-   if(check == 1) 
-        return document.querySelector("#title").innerHTML = "THE WINNER IS O !";
-    return document.querySelector("#title").innerHTML = "THE WINNER IS X !";
-   
+    return document.querySelector("#title").innerHTML = "THE WINNER IS " + xao + " !";  
 }

@@ -9,7 +9,7 @@ function setTic(bt) {
         arr[bt] = "X";                  
         document.querySelectorAll("#numbers")[bt].innerHTML = xao = "O";
     } else {
-       arr[bt] ="O";
+       arr[bt] = "O";
        document.querySelectorAll("#numbers")[bt].innerHTML = xao = "X";
     }
     move = arr[bt];

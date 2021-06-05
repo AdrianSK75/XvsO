@@ -20,22 +20,22 @@ function checkTable(move) {
         for(var i = 0, j = 0; i <= 6; i += 3, ++j) { //Horizontal + Vertical
             if(arr[i] == move && arr[i + 1] == move && arr[i + 2] == move) {
                 position[0] = i; position[1] = i + 1; position[2] = i + 2;
-                return checkWinner();
+                return printWinner();
             }
 
             if(arr[j] == move && arr[j + 3] == move && arr[j + 6] == move) {
                 position[0] = j; position[1] = j + 3; position[2] = j + 6;
-                return checkWinner();
+                return printWinner();
             }
         }
         
         if(arr[0] == move && arr[4] == move && arr[8] == move) { //Diagonals
                    position[0] = 0; position[1] = 4; position[2] = 8;
-                   return checkWinner();
+                   return printWinner();
 
         } else if(arr[2] == move && arr[4] == move && arr[6] == move) {
                    position[0] = 2; position[1] = 4; position[2] = 6;
-                   return checkWinner();
+                   return printWinner();
         }
 }
 

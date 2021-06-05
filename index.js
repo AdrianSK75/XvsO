@@ -39,7 +39,7 @@ function checkTable(move) {
         }
 }
 
-function checkWinner() {
+function printWinner() {
     for(var btn = 0; btn < 9; ++btn) {
             document.querySelectorAll(".button")[btn].disabled = true;
 
